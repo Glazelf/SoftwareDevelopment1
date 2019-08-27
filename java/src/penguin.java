@@ -11,7 +11,7 @@ public class penguin {
 
     public void feed(){
         this.energy += 50;
-        System.out.println("Penguin snatches a fish.");
+        System.out.print("You feed penguin number ");
     }
     public void passDay(){
         this.energy -= 30;

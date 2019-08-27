@@ -155,13 +155,13 @@ public class main {
         int penguinNumber = getNumber(1, 3);
         switch(penguinNumber){
             case 1: penguin1.feed();
-                System.out.println("You fed penguin 1\n");
+                System.out.println("1");
                 break;
             case 2: penguin2.feed();
-                System.out.println("You fed penguin 2\n");
+                System.out.println("2");
                 break;
             case 3: penguin3.feed();
-                System.out.println("You fed penguin 3\n");
+                System.out.println("3");
                 break;
         }
     }
