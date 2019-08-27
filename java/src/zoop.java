@@ -14,7 +14,7 @@ public class zoop {
 
         private java.util.Random nextInt ;
 
-        public zoop() {
+        private zoop() {
             numberOfDaysLeft = 7;
 
             penguinOneEnergy = 100;
@@ -25,7 +25,7 @@ public class zoop {
             this.nextInt = new java.util.Random();
         }
 
-        public void ShowWelcome(){
+        private void ShowWelcome(){
             String msg =  " ***  WELCOME at the  ***\n"
                     + "   *  three PENGUINS  *\n"
                     + "   *  and a POLARBEAR *\n"
@@ -36,7 +36,7 @@ public class zoop {
             Say(msg);
         }
 
-        public void ShowInstructions()
+        private void ShowInstructions()
         {
             String msg = "You must feed the animals to keep up the zoo.\n"
                     + "Use 'new day' to advance to the next day\n"
@@ -50,22 +50,22 @@ public class zoop {
         /**
          * Output text to the user
          */
-        public static void Say(String msg)
+        private static void Say(String msg)
         {
             System.out.println(msg);
         }
 
-        public boolean IsPenguinOneAlive()
+        private boolean IsPenguinOneAlive()
         {
             return this.penguinOneEnergy > 0;
         }
 
-        public boolean IsPenguinTwoAlive()
+        private boolean IsPenguinTwoAlive()
         {
             return this.penguinTwoEnergy > 0;
         }
 
-        public boolean IsPenguinThreeAlive()
+        private boolean IsPenguinThreeAlive()
         {
             return this.penguinThreeEnergy > 0;
         }
@@ -75,19 +75,19 @@ public class zoop {
             return this.polarBearEnergy > 0;
         }
 
-        public void FeedPenguinOne(int energy)
+        private void FeedPenguinOne(int energy)
         {
             this.penguinOneEnergy += energy;
             Say("Penguin 1 snatches a fish.");
         }
 
-        public void FeedPenguinTwo(int energy)
+        private void FeedPenguinTwo(int energy)
         {
             this.penguinTwoEnergy += energy;
             Say("Penguin 2 snatches a fish.");
         }
 
-        public void FeedPenguinThree(int energy)
+        private void FeedPenguinThree(int energy)
         {
             this.penguinThreeEnergy += energy;
             Say("Penguin 3 snatches a fish.");
@@ -99,7 +99,7 @@ public class zoop {
             Say("Polar bear snatches a fish.");
         }
 
-        public void PolarBearHuntsPenguinOne()
+        private void PolarBearHuntsPenguinOne()
         {
             this.polarBearEnergy += this.penguinOneEnergy;
             this.penguinOneEnergy = 0;
@@ -107,7 +107,7 @@ public class zoop {
             Say("The polar bear has eaten a penguin!");
         }
 
-        public void PolarBearHuntsPenguinTwo()
+        private void PolarBearHuntsPenguinTwo()
         {
             this.polarBearEnergy += this.penguinTwoEnergy;
             this.penguinTwoEnergy = 0;
@@ -115,7 +115,7 @@ public class zoop {
             Say("The polar bear has eaten a penguin!");
         }
 
-        public void PolarBearHuntsPenguinThree()
+        private void PolarBearHuntsPenguinThree()
         {
             this.polarBearEnergy += this.penguinThreeEnergy;
             this.penguinThreeEnergy = 0;
@@ -123,7 +123,7 @@ public class zoop {
             Say("The polar bear has eaten a penguin!");
         }
 
-        public void ShowFullScreen()
+        private void ShowFullScreen()
         {
             String msg = "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n"
                     + ":::::::::::::::::::::::::::::::::::::::://::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n"
@@ -168,7 +168,7 @@ public class zoop {
         /**
          * Avoid starvation, try to catch a penguin
          */
-        public void PolarBearHunts()
+        private void PolarBearHunts()
         {
             int penguinNumber = GetNumber(1, 3);
 
@@ -187,29 +187,29 @@ public class zoop {
             }
         }
 
-        public void ShowNoPenguinToHunt()
+        private void ShowNoPenguinToHunt()
         {
             Say("There is no penguin left to hunt for the polar bear. You better be careful!");
         }
 
-        public void ShowNoPenguinFeeded()
+        private void ShowNoPenguinFeeded()
         {
             Say("The zoo caretaker ate the fish himself.");
         }
 
-        public void ShowGoodBye()
+        private void ShowGoodBye()
         {
             Say("bye ...");
         }
 
-        public void ShowWhatDoYouWant(String cmd)
+        private void ShowWhatDoYouWant(String cmd)
         {
             String msg = "The Zoo caretaker does not understand '" + cmd + "'.";
 
             Say(msg);
         }
 
-        public void CloseApp()
+        private void CloseApp()
         {
             ShowGoodBye();
             System.exit(0);
@@ -218,7 +218,7 @@ public class zoop {
         /**
          * The zoo caretaker feeds one of the penguins
          */
-        public void FeedPenguin()
+        private void FeedPenguin()
         {
             int fish = 50;
 
@@ -239,14 +239,14 @@ public class zoop {
             }
         }
 
-        public void FeedPolarBear()
+        private void FeedPolarBear()
         {
             int fish = 50;
 
             this.polarBearEnergy += fish;
         }
 
-        public int GetNumberOfLivingPenguins()
+        private int GetNumberOfLivingPenguins()
         {
             int numberOfPinguins = 0;
             if (IsPenguinOneAlive()) numberOfPinguins++;
@@ -256,7 +256,7 @@ public class zoop {
             return numberOfPinguins;
         }
 
-        public void ShowStatus()
+        private void ShowStatus()
         {
             int numberOfPinguins = GetNumberOfLivingPenguins();
 
@@ -277,17 +277,17 @@ public class zoop {
             Say(penguinMsg);
         }
 
-        public int GetNumber(int from, int to)
+        private int GetNumber(int from, int to)
         {
             return from+this.nextInt.nextInt(to);
         }
 
-        public boolean IsPolarBearStarving()
+        private boolean IsPolarBearStarving()
         {
             return this.polarBearEnergy <= polarBearStarvationEnergyThreshold;
         }
 
-        public boolean AllAnimalsAreAlive()
+        private boolean AllAnimalsAreAlive()
         {
             boolean allPenguinsAreAlive = GetNumberOfLivingPenguins() == 3;
             boolean polarBearIsAlive = this.polarBearEnergy > 0;
@@ -295,17 +295,17 @@ public class zoop {
             return allPenguinsAreAlive && polarBearIsAlive;
         }
 
-        public boolean AreThereAnyDaysLeft()
+        private boolean AreThereAnyDaysLeft()
         {
             return this.numberOfDaysLeft > 0;
         }
 
-        public boolean IsGameWon()
+        private boolean IsGameWon()
         {
             return ! AreThereAnyDaysLeft() && AllAnimalsAreAlive();
         }
 
-        public boolean IsGameOver()
+        private boolean IsGameOver()
         {
             return !( AreThereAnyDaysLeft() || AllAnimalsAreAlive());
         }
@@ -313,7 +313,7 @@ public class zoop {
         /**
          * Each day, the animals consume energy
          */
-        public void DayChange()
+        private void DayChange()
         {
             this.numberOfDaysLeft -= 1;
 
@@ -342,7 +342,7 @@ public class zoop {
 
             if (IsPolarBearStarving()) PolarBearHunts();
 
-            Say(" *** A new day is comming. ***");
+            Say(" *** A new day is coming. ***");
         }
 
         public static void main(String[] args) throws IOException {
@@ -352,7 +352,7 @@ public class zoop {
             zoo.ShowWelcome();
 
             // listen for commands
-            while(true && zoo.AreThereAnyDaysLeft())
+            while(zoo.AreThereAnyDaysLeft())
             {
                 String cmd = (new BufferedReader(new InputStreamReader(System.in))).readLine();
 
