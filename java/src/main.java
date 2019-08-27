@@ -2,12 +2,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 public class main {
     private int daysLeft;
     private java.util.Random nextInt;
-    private int penguinEnergyUsedForADay = 30;
-    private int polarBearEnergyUsedForADay = 300;
     private penguin penguin1;
     private penguin penguin2;
     private penguin penguin3;
@@ -92,7 +89,6 @@ public class main {
                         }
             }
         }
-
         System.out.println(" *** A new day is coming. ***");
     }
     private void ShowStatus() {
@@ -176,42 +172,34 @@ public class main {
 
     public static void main(String[] args) throws IOException{
         main zoo = new main();
-
         // Start with message
         zoo.ShowWelcome();
-
         // listen for commands
         while(zoo.checkDaysLeft())
         {
             String cmd = (new BufferedReader(new InputStreamReader(System.in))).readLine();
-
             switch(cmd){
                 // close command
                 case "close": case "quit": case "exit":
                 zoo.CloseApp();
                 break;
-
                 // feed penguin command
                 case "feed penguin":
                     zoo.feedPenguins();
                     break;
-
                 // feed penguin command
                 case "feed polar bear":
                     zoo.feedPolarBear();
                     break;
-
                 // help command
                 case "help": case "?":
                 zoo.ShowInstructions();
                 break;
-
                 // new day command
                 case "new day":
                     zoo.DayChange();
                     zoo.ShowStatus();
                     break;
-
                 // unknown command
                 default:
                     zoo.showUnknownCmd(cmd);
